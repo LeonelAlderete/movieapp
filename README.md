@@ -38,7 +38,14 @@
 * [React UI Kitten](https://akveo.github.io/react-native-ui-kitten/)
 * [The Movie Database API](https://www.themoviedb.org/)
 
+<!-- ROADMAP -->
+## Roadmap
 
+- [x] Sistema de navegacion
+- [x] Obtener peliculas populares
+- [x] Obtener datos de una pelicula
+- [x] Buscar peliculas
+- [x] Ver trailers
 
 <!-- GETTING STARTED -->
 ## Como empezar
