@@ -74,8 +74,8 @@ Para obtener una copia local siga estos pasos.
 <!-- CONTACT -->
 ## Contactarme
 
-GitHub - [@LeonelAlderete](https://github.com/LeonelAlderete)
+GitHub - [LeonelAlderete](https://github.com/LeonelAlderete)
 
-Linkedin - [Saul Leonel Alderete](https://www.linkedin.com/in/sa%C3%BAl-leonel-alderete-93b740224/)
+Linkedin - [Leonel Alderete](https://www.linkedin.com/in/leonel-alderete/)
 
 <p align="right">(<a href="#top">Volver arriba</a>)</p>
