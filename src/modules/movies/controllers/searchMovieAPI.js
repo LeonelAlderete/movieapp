@@ -17,8 +17,6 @@ export default function searchMovieAPI(searchValue) {
       },
     });
 
-    console.log('searchMovieAPI - success');
-
     return res;
   } catch (error) {
     console.log(error);

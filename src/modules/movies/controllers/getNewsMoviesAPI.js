@@ -18,8 +18,6 @@ export default function getNewsMoviesAPI(page) {
       },
     });
 
-    console.log('getNewsMoviesAPI - success');
-
     return res;
   } catch (error) {
     console.log(error);

@@ -17,8 +17,6 @@ const getAllGenresAPI = async () => {
       },
     });
 
-    console.log('getAllGenresAPI - success');
-
     return allGenres.data.genres;
   } catch (error) {
     console.log(error);

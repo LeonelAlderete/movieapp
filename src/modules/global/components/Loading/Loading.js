@@ -1,9 +1,8 @@
-import {View, ActivityIndicator, StyleSheet, Dimensions} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import React from 'react';
 //ui
+import styles from './loading-styles';
 import {Text, Layout} from '@ui-kitten/components';
-//Constantes
-const {height} = Dimensions.get('window');
 
 export default function Loading() {
   return (
@@ -14,16 +13,3 @@ export default function Loading() {
     </Layout>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    minHeight: height,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 20,
-    marginBottom: 15,
-  },
-});

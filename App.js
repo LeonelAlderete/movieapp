@@ -11,6 +11,7 @@ import {
 } from '@ui-kitten/components';
 //Context
 import MovieDataProvider from './src/modules/movies/context/MovieDataContext';
+import GenreDataProvider from './src/modules/movies/context/GenreDataContext';
 //Componentes
 import DrawerNavigation from './src/navigation/DrawerNavigation';
 
@@ -21,11 +22,13 @@ export default function App() {
     <>
       <IconRegistry icons={EvaIconsPack} />
       <KittenUIProvider {...eva} theme={eva.dark}>
-        <MovieDataProvider>
-          <NavigationContainer>
-            <DrawerNavigation />
-          </NavigationContainer>
-        </MovieDataProvider>
+        <GenreDataProvider>
+          <MovieDataProvider>
+            <NavigationContainer>
+              <DrawerNavigation />
+            </NavigationContainer>
+          </MovieDataProvider>
+        </GenreDataProvider>
       </KittenUIProvider>
     </>
   );

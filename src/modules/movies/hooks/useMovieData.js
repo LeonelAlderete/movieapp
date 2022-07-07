@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+//Context
+import {GenreDataContext} from '../context/GenreDataContext';
 //Controladores
 import getPopularMoviesAPI from '../controllers/getPopularMoviesAPI';
-import getAllGenresAPI from '../controllers/getAllGenresAPI';
 import getRecommendedMovies from '../controllers/getRecommendedMovies';
 import getNewsMovieAPI from '../controllers/getNewsMoviesAPI';
 import getMovieDataAPI from '../controllers/getMovieDataAPI';
@@ -9,6 +10,8 @@ import getMovieTrailersAPI from '../controllers/getMovieTrailersAPI';
 import searchMovieAPI from '../controllers/searchMovieAPI';
 
 export default function useMovieData() {
+  //Context
+  const {allGenres, selectedGenre} = useContext(GenreDataContext);
   //Datos de pelicula seleccionada
   const [movieData, setMovieData] = useState(undefined);
   const [movieTrailer, setMovieTrailer] = useState(undefined); //url del trailer
@@ -18,8 +21,6 @@ export default function useMovieData() {
   const [recommendedMovies, setRecommendedMovies] = useState(undefined); //Lista de la categoria seleccionada en HOME
   const [searchResult, setSearchResult] = useState(undefined);
   //Utils
-  const [allGenres, setAllGenres] = useState(null); // Generos disponibles para busacar|renderizar peliculas
-  const [selectedGenre, setSelectedGenre] = useState(28);
   const [page, setPage] = useState({popularMovies: 2, newsMovies: 2}); //Cantidad de paginas obtenidas desde la API
   const [disableButton, setDisabledButton] = useState(false);
   const [showMoreMoviesButton, setShowMoreMoviesButton] = useState(false);
@@ -43,17 +44,6 @@ export default function useMovieData() {
       setNewsMoviesList(res.data.results);
 
       res.data.total_pages > 1 && setShowMoreMoviesButton(true);
-    };
-
-    onStart();
-  }, []);
-
-  //Obtener generos de peliculas
-  useEffect(() => {
-    const onStart = async () => {
-      const res = await getAllGenresAPI();
-
-      setAllGenres(res);
     };
 
     onStart();
@@ -151,14 +141,11 @@ export default function useMovieData() {
     showMoreMoviesButton,
     page,
     setPage,
-    allGenres,
     movieData,
     movieTrailer,
-    selectedGenre,
     recommendedMovies,
     newsMoviesList,
     searchResult,
-    setSelectedGenre,
     popularMoviesList,
     setMovieGenre,
     getMovieData,

@@ -1,8 +1,10 @@
-import {View, StyleSheet, ScrollView, Dimensions} from 'react-native';
+import {View, ScrollView, Dimensions} from 'react-native';
 import React, {useContext} from 'react';
 //ui
+import styles from './home-styles';
 import {Layout, Text} from '@ui-kitten/components';
 //context
+import {GenreDataContext} from '../../context/GenreDataContext';
 import {MovieDataContext} from '../../context/MovieDataContext';
 //Utils
 import {map} from 'lodash';
@@ -16,13 +18,9 @@ const {height} = Dimensions.get('window');
 
 export default function HomeMovies(props) {
   const {navigation} = props;
-  const {
-    allGenres,
-    selectedGenre,
-    setSelectedGenre,
-    recommendedMovies,
-    popularMoviesList,
-  } = useContext(MovieDataContext);
+  const {recommendedMovies, popularMoviesList} = useContext(MovieDataContext);
+  const {allGenres, selectedGenre, setSelectedGenre} =
+    useContext(GenreDataContext);
 
   return popularMoviesList && recommendedMovies && allGenres ? (
     <Layout style={{minHeight: height}}>
@@ -89,33 +87,3 @@ const GenresList = props => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  news: {
-    marginVertical: 10,
-  },
-  newsTitle: {
-    marginBottom: 15,
-    marginHorizontal: 20,
-    fontWeight: 'bold',
-    fontSize: 22,
-  },
-  genres: {
-    marginTop: 20,
-  },
-  genresTitle: {
-    marginHorizontal: 20,
-    fontWeight: 'bold',
-    fontSize: 22,
-  },
-  genreList: {
-    marginTop: 5,
-    marginBottom: 15,
-    paddingHorizontal: 20,
-    padding: 10,
-  },
-  genre: {
-    marginRight: 20,
-    fontSize: 16,
-  },
-});

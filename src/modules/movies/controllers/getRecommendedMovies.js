@@ -18,8 +18,6 @@ export default function getRecommendedMovies(genreID) {
       },
     });
 
-    console.log('getRecommendedMovies - success');
-
     return res;
   } catch (error) {
     console.log(error);

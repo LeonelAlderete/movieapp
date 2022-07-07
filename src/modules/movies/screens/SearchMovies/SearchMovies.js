@@ -1,6 +1,5 @@
 import {
   View,
-  StyleSheet,
   ScrollView,
   TouchableHighlight,
   Image,
@@ -8,6 +7,7 @@ import {
 } from 'react-native';
 import React, {useState, useContext} from 'react';
 //ui
+import styles from './searchmovies-styles';
 import {Button, Text, Input, Layout} from '@ui-kitten/components';
 //Context
 import {MovieDataContext} from '../../context/MovieDataContext';
@@ -20,7 +20,7 @@ import {
   BASE_PATH_IMG,
   MOVIE_DATA_PATH,
 } from '../../../../utils/constants/constants';
-const {width, height} = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 export default function SearchMovies(props) {
   const {navigation} = props;
@@ -99,31 +99,3 @@ const Movie = props => {
     </TouchableHighlight>
   );
 };
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  input: {
-    flexGrow: 5,
-  },
-  button: {
-    flexGrow: 1,
-  },
-  resultContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  movie: {
-    width: width / 2,
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-});

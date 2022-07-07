@@ -1,6 +1,7 @@
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import React, {useContext} from 'react';
 //ui
+import styles from './modalvideo-styles';
 import {Icon, Button, Modal} from '@ui-kitten/components';
 //context
 import {MovieDataContext} from '../../../movies/context/MovieDataContext';
@@ -39,28 +40,3 @@ export default function ModalVideo(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  modal: {
-    backgroundColor: '#000',
-    height: '50%',
-    alignItems: 'center',
-  },
-  close: {
-    width: 50,
-    height: 50,
-    borderRadius: 100,
-    position: 'absolute',
-    bottom: -100,
-  },
-  video: {
-    alignSelf: 'stretch',
-    height: 300,
-  },
-  backdrop: {
-    backgroundColor: 'rgba(0, 0, 0, 1)',
-  },
-  webView: {
-    width: 500,
-  },
-});

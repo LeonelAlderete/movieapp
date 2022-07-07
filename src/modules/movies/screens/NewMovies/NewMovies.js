@@ -2,12 +2,12 @@ import {
   View,
   Image,
   ScrollView,
-  StyleSheet,
   Dimensions,
   TouchableHighlight,
 } from 'react-native';
 import React, {useContext} from 'react';
 //ui
+import styles from './newmovies-styles';
 import {Layout, Text, Button} from '@ui-kitten/components';
 //Contexto
 import {MovieDataContext} from '../../context/MovieDataContext';
@@ -18,7 +18,7 @@ import {
   BASE_PATH_IMG,
   MOVIE_DATA_PATH,
 } from '../../../../utils/constants/constants';
-const {height, width} = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 export default function NewMovies(props) {
   const {navigation} = props;
@@ -89,28 +89,3 @@ const Movies = props => {
     </TouchableHighlight>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  movie: {
-    width: width / 2,
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  loadMoreContainer: {
-    paddingTop: 10,
-    paddingBottom: 30,
-  },
-  loadMore: {
-    backgroundColor: 'transparent',
-  },
-});

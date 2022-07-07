@@ -18,8 +18,6 @@ export default function getPopularMoviesAPI(page) {
       },
     });
 
-    console.log('getPopularMoviesAPI - success');
-
     return res;
   } catch (error) {
     console.log(error);

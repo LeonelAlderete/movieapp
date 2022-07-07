@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React, {useContext} from 'react';
 //ui
+import styles from './smallcarousel-styles';
 import {Text} from '@ui-kitten/components';
 //Context
 import {MovieDataContext} from '../../../movies/context/MovieDataContext';
@@ -39,8 +40,9 @@ export default function SmallCarousel(props) {
 
 const RenderItem = props => {
   const {navigation, data} = props;
-  const {disableButton, getMovieData} = useContext(MovieDataContext);
   const {id, title, poster_path} = data.item;
+  //Context
+  const {disableButton, getMovieData} = useContext(MovieDataContext);
 
   //URL imagen
   const imageUrl = `${BASE_PATH_IMG}/w500${poster_path}`;
@@ -66,25 +68,3 @@ const RenderItem = props => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-  },
-  image: {
-    width: '85%',
-    height: 170,
-    borderRadius: 20,
-  },
-  title: {
-    marginHorizontal: 10,
-    marginTop: 10,
-    fontSize: 16,
-  },
-});

@@ -1,16 +1,12 @@
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Dimensions,
-} from 'react-native';
+import {View, Image, TouchableWithoutFeedback, Dimensions} from 'react-native';
 //Navigation
 import React, {useState, useContext, useEffect} from 'react';
 //ui
 import {Text} from '@ui-kitten/components';
+import styles from './bigcarousel-styles';
 //Context
 import {MovieDataContext} from '../../../movies/context/MovieDataContext';
+import {GenreDataContext} from '../../../movies/context/GenreDataContext';
 //utils
 import Carousel from 'react-native-snap-carousel';
 import {map, size} from 'lodash';
@@ -26,7 +22,7 @@ export default function BigCarousel(props) {
   const {navigation, data} = props;
   const [carouselData, setCarouselData] = useState([]);
 
-  /* Solo renderiza 10 elementos */
+  /* El carousel solo renderiza los primeros 10 elementos */
   useEffect(() => {
     const onStart = () => {
       let auxData = [];
@@ -54,9 +50,10 @@ export default function BigCarousel(props) {
 
 const RenderItem = props => {
   const {data, navigation} = props;
-  const {disableButton, getMovieData, setMovieGenre} =
-    useContext(MovieDataContext);
   const {id, title, poster_path, genre_ids} = data.item;
+  //Context
+  const {disableButton, getMovieData} = useContext(MovieDataContext);
+  const {setMovieGenre} = useContext(GenreDataContext);
 
   //URL imagen
   const imageUrl = `${BASE_PATH_IMG}/w500${poster_path}`;
@@ -96,32 +93,3 @@ const RenderItem = props => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-  },
-  image: {
-    width: '100%',
-    height: 450,
-    borderRadius: 20,
-  },
-  title: {
-    marginHorizontal: 10,
-    marginTop: 10,
-  },
-  genres: {
-    flexDirection: 'row',
-    marginHorizontal: 10,
-  },
-  genre: {
-    fontSize: 12,
-    color: '#8997a5',
-  },
-});
